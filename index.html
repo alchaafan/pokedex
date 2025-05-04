@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
 </head>
 <body>
     <header>
-        <h1>Pokedex</h1>
-    </header>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokéball" class="poke-icon">
+        <h1>Pokédex</h1>
+      </header>
+      
    <main>
+    <input type="text" id="searchInput" placeholder="Pokemon suchen">
     <div id="content"></div>
+    <button id="loadMoreBtn">Mehr laden</button>
+    <div id="spinner" class="spinner" style="display: none;"></div>
+
 
 
 
@@ -19,6 +26,10 @@
 
 
    </main>
+   <footer>
+    <p>Erstellt mit ❤️ und JavaScript · Daten von <a href="https://pokeapi.co" target="_blank">PokeAPI</a></p>
+  </footer>
+  
     <script src="script.js"></script>
 </body>
 </html>
