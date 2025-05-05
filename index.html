@@ -1,35 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
 </head>
-<body>
-    <header>
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokéball" class="poke-icon">
-        <h1>Pokédex</h1>
-      </header>
-      
+<body onload="fetchData();">
+  <header>
+    
+    <h1>
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+      Pokedex
+    </h1>
+  </header>
+  
    <main>
     <input type="text" id="searchInput" placeholder="Pokemon suchen">
     <div id="content"></div>
     <button id="loadMoreBtn">Mehr laden</button>
-    <div id="spinner" class="spinner" style="display: none;"></div>
-
-
-
-
-
-
 
 
    </main>
-   <footer>
-    <p>Erstellt mit ❤️ und JavaScript · Daten von <a href="https://pokeapi.co" target="_blank">PokeAPI</a></p>
-  </footer>
-  
     <script src="script.js"></script>
 </body>
 </html>
