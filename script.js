@@ -22,8 +22,12 @@ function renderPokemon(pokemon) {
 `<div class ="pokemon-card">
                      
                       <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
-                       <h3>${pokemon.name}</h3>
+                       <h3>#${pokemon.id} ${pokemon.name}</h3>
                  </div>`;
                  
 
 }
+
+document.getElementById('loadMoreBtn').addEventListener('click', () => {
+    fetchData();
+});

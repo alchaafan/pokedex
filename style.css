@@ -57,7 +57,7 @@ main {
 
 .pokemon-card {
   display: inline-block;
-  width: 150px;
+  width: 350px;
   margin: 10px;
   text-align: center;
   border: 2px solid #c7bebe;
@@ -74,8 +74,8 @@ main {
 }
 
 .pokemon-card img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   transition: transform 0.2s ease;
 }
 
@@ -109,8 +109,13 @@ footer {
   
 }
 
+p {
+  font-size: 15px;
+}
+
 footer a {
-  color: #fdd835; /* Pikachu-Gelb */
+  font-size: 25px;
+  color: #fdd835; 
   text-decoration: none;
   font-weight: bold;
 }
