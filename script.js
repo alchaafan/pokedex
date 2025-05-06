@@ -42,10 +42,32 @@ function toggleOverlay(pokemon) {
     const overlayRef = document.getElementById('overlay');
 
     if (pokemon) {
+
+        let typesText = "";
+        for (let i = 0; i < pokemon.types.length; i++) {
+            typesText += pokemon.types[i].type.name;
+
+            if (i < pokemon.types.length - 1) {
+                typesText += ', ';
+            }
+        }
+
+        let abilitiesText = "";
+        for (let i = 0; i < pokemon.abilities.length; i++) {
+            abilitiesText += pokemon.abilities[i].ability.name;
+
+            if (i < pokemon.abilities.length - 1) {
+                abilitiesText += ', ';
+            }
+        }
+
+
         overlayRef.innerHTML = `
             <div class="pokemon-card enlarged">
                 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
                 <h3>#${pokemon.id} ${pokemon.name}</h3>
+                 <h2><strong>Typ:</strong> ${typesText}</h2>
+                 <h2><strong>Fähigkeiten:</strong> ${abilitiesText}</h2>
             </div>
         `;
         overlayRef.classList.remove('hide');
