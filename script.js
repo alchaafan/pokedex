@@ -23,24 +23,43 @@ async function fetchData() {
 function renderPokemon(pokemon) {
     const contentRef = document.getElementById('content');
 
-    
+
     contentRef.innerHTML += `
         <div class="pokemon-card" id="pokemon-${pokemon.id}">
             <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
             <h3>#${pokemon.id} ${pokemon.name}</h3>
         </div>
     `;
-
    
-    setTimeout(() => {
-        const cardRef = document.getElementById(`pokemon-${pokemon.id}`);
-        if (cardRef) {
-            const index = allPokemonData.findIndex(p => p.id === pokemon.id);
-            cardRef.addEventListener('click', () => {
-                toggleOverlay(index);
-            });
-        }
-    }, 200); 
+}
+
+
+function renderFilterPokemons(pokemonArray) {
+    const contentRef = document.getElementById('content');
+    contentRef.innerHTML = "";
+
+    for (let i = 0; i < pokemonArray.length; i++) {
+        const pokemon = pokemonArray[i];
+
+        contentRef.innerHTML += `
+        <div class="pokemon-card" id="pokemon-${pokemon.id}">
+            <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+            <h3>#${pokemon.id} ${pokemon.name}</h3>
+        </div>
+    `;
+
+
+
+        setTimeout(() => {
+            const cardRef = document.getElementById(`pokemon-${pokemon.id}`);
+            if (cardRef) {
+                const index = allPokemonData.findIndex(p => p.id === pokemon.id);
+                cardRef.addEventListener('click', () => {
+                    toggleOverlay(index);
+                });
+            }
+        }, 200);
+    }
 }
 
 function toggleOverlay(index) {
@@ -85,7 +104,7 @@ function toggleOverlay(index) {
             </div>
         </div>
     `;
-    
+
         overlayRef.classList.remove('hide');
     } else {
         overlayRef.classList.add('hide');
@@ -95,8 +114,15 @@ function toggleOverlay(index) {
 document.getElementById('overlay').addEventListener('click', () => toggleOverlay())
 
 document.getElementById('loadMoreBtn').addEventListener('click', () => {
+
     fetchData();
 });
+
+document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const filtered = allPokemonData.filter(pokemon => pokemon.name.toLowerCase().includes(query));
+    renderFilterPokemons(filtered);
+})
 
 function showPrev() {
     if (currentPokemonIndex > 0) {
