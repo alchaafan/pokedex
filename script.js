@@ -1,6 +1,7 @@
 let loadOffset = 0;
 
 async function fetchData() {
+    document.getElementById('loader').classList.remove('hide')
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=25&offset=${loadOffset}`);
     let data = await response.json();
     let pokemonList = data.results;
@@ -10,6 +11,7 @@ async function fetchData() {
         let pokemonData = await detailsResponse.json();
         renderPokemon(pokemonData);
     }
+    document.getElementById('loader').classList.add('hide');
 
     loadOffset += 25;
 }
