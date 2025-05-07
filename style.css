@@ -62,8 +62,37 @@ main {
   text-align: center;
   border: 2px solid #c7bebe;
   border-radius: 8px;
-
 }
+
+.type-fire {
+  background-color: #f08030;
+  color: white;
+}
+
+.type-water {
+  background-color: #6890f0;
+  color: white;
+}
+
+.type-grass {
+  background-color: #78c850;
+  color: white;
+}
+.type-electric { background-color: #f8d030; }
+.type-psychic { background-color: #f85888; }
+.type-ice { background-color: #98d8d8; }
+.type-dragon { background-color: #7038f8; }
+.type-dark { background-color: #705848; }
+.type-fairy { background-color: #ee99ac; }
+.type-normal { background-color: #a8a878; }
+.type-poison { background-color: #a040a0; }
+.type-ground { background-color: #e0c068; }
+.type-fighting { background-color: #c03028; }
+.type-flying { background-color: #a890f0; }
+.type-bug { background-color: #a8b820; }
+.type-rock { background-color: #b8a038; }
+.type-ghost { background-color: #705898; }
+.type-steel { background-color: #b8b8d0; }
 
 .overlay {
   position: fixed;

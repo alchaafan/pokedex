@@ -22,15 +22,24 @@ async function fetchData() {
 
 function renderPokemon(pokemon) {
     const contentRef = document.getElementById('content');
-
+    const mainType = pokemon.types[0].type.name; 
+    const typeClass = `type-${mainType}`; 
 
     contentRef.innerHTML += `
-        <div class="pokemon-card" id="pokemon-${pokemon.id}">
+        <div class="pokemon-card ${typeClass}" id="pokemon-${pokemon.id}">
             <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
             <h3>#${pokemon.id} ${pokemon.name}</h3>
         </div>
     `;
-   
+    setTimeout(() => {
+        const cardRef = document.getElementById(`pokemon-${pokemon.id}`);
+        if (cardRef) {
+            const index = allPokemonData.findIndex(p => p.id === pokemon.id);
+            cardRef.addEventListener('click', () => {
+                toggleOverlay(index);
+            });
+        }
+    }, 500);
 }
 
 
@@ -50,15 +59,7 @@ function renderFilterPokemons(pokemonArray) {
 
 
 
-        setTimeout(() => {
-            const cardRef = document.getElementById(`pokemon-${pokemon.id}`);
-            if (cardRef) {
-                const index = allPokemonData.findIndex(p => p.id === pokemon.id);
-                cardRef.addEventListener('click', () => {
-                    toggleOverlay(index);
-                });
-            }
-        }, 200);
+  
     }
 }
 
