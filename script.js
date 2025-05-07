@@ -107,8 +107,10 @@ function toggleOverlay(index) {
     `;
 
         overlayRef.classList.remove('hide');
+        document.body.style.overflow = 'hidden'
     } else {
         overlayRef.classList.add('hide');
+        document.body.style.overflow = '';
     }
 }
 
